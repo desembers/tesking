@@ -49,9 +49,9 @@ public class TodoService {
 
     @Transactional
     public Page<TodoResponse> getTodos(int page, int size) {
-        Pageable pageable = PageRequest.of(page - 1, size);
+        PageRequest pageable = PageRequest.of(page - 1, size);
 
-        Page<Todo> todos = todoRepository.findAllByOrderByModifiedAtDesc(pageable);
+        Page<Todo> todos = todoRepository.findAllByOrderByModifiedAtDesc((Pageable) pageable);
 
         return todos.map(todo -> new TodoResponse(
                 todo.getId(),

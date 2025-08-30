@@ -1,5 +1,6 @@
 package com.example.tests.domain.user.service;
 
+import com.example.tests.domain.common.exception.InValidRequestException;
 import com.example.tests.domain.user.dto.request.UserRoleChangeRequest;
 import com.example.tests.domain.user.entity.User;
 import com.example.tests.domain.user.enums.UserRole;
@@ -15,7 +16,7 @@ public class UserAdminService {
 
     @Transactional
     public void changeUserRole(long userId, UserRoleChangeRequest userRoleChangeRequest) {
-        User user = userRepository.findById(userId).orElseThrow(() -> new InvalidRequestException("User not found"));
+        User user = userRepository.findById(userId).orElseThrow(() -> new InValidRequestException("User not found"));
         user.updateRole(UserRole.of(userRoleChangeRequest.getRole()));
     }
 }
