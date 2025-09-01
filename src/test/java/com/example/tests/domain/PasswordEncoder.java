@@ -13,7 +13,7 @@ public class PasswordEncoder {
     private PasswordEncoder passwordEncoder;
 
     @Test
-    void matches_메서드가_정상적으로_동작한다() {
+    void matches_메서드가_정상적으로_동작한다1() {
         // given
         String rawPassword = "testPassword";
         String encodedPassword = passwordEncoder.encode(rawPassword);
@@ -26,7 +26,7 @@ public class PasswordEncoder {
     }
 
     @Test
-    void matches_메서드가_정상적으로_동작한다() {
+    void matches_메서드가_정상적으로_동작한다2() {
         String raw = "testPassword1!";
         String encoded = passwordEncoder.encode(raw);
         assertTrue(passwordEncoder.matches(raw, encoded));

@@ -84,7 +84,7 @@ public class Managerservice {
             throw new InValidRequestException("해당 일정을 만든 유저가 유효하지 않습니다.");
         }
 
-        Manager manager = managerRepository.findById(managerId)
+        com.example.tests.domain.manager.entity.Manager manager = managerRepository.findById(managerId)
                 .orElseThrow(() -> new InValidRequestException("Manager not found"));
 
         if (!ObjectUtils.nullSafeEquals(todo.getId(), manager.getTodo().getId())) {
